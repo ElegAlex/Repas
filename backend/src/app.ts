@@ -1,11 +1,17 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import guestsRouter from './routes/guests.js';
 import contributionsRouter from './routes/contributions.js';
 import statsRouter from './routes/stats.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export function createApp() {
   const app = express();
+  const isProduction = process.env.NODE_ENV === 'production';
   const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:5173';
 
   // Middleware
@@ -55,6 +61,19 @@ export function createApp() {
   app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
   });
+
+  // Serve frontend in production
+  if (isProduction) {
+    const frontendPath = path.join(__dirname, '../../public');
+    app.use(express.static(frontendPath));
+
+    // SPA fallback - serve index.html for all non-API routes
+    app.get('*', (req, res) => {
+      if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(frontendPath, 'index.html'));
+      }
+    });
+  }
 
   // Error handler global
   app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
