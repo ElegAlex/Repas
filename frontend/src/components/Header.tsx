@@ -19,7 +19,7 @@ export function Header() {
           <span aria-hidden="true"> 🎄</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl opacity-90">
-          Fin d'Année 2024
+          Fin d'Année 2025
         </p>
         <p className="text-xs sm:text-sm mt-2 opacity-75 max-w-md mx-auto">
           Le dernier repas avant la TAM - Célébrons ensemble !
