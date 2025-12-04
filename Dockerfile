@@ -16,10 +16,13 @@ RUN npm install && npm run build
 # Copy frontend build to backend
 RUN rm -rf public && cp -r ../frontend/dist public
 
+# Create data directory for SQLite
+RUN mkdir -p data
+
 # Set production mode
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=10000
 
-EXPOSE 3001
+EXPOSE 10000
 
 CMD ["npm", "start"]
