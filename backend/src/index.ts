@@ -1,0 +1,15 @@
+import { createApp } from './app.js';
+import { initializeDatabase } from './db/index.js';
+
+const PORT = process.env.PORT || 3001;
+
+// Initialize database and start server
+initializeDatabase();
+
+const app = createApp();
+
+app.listen(PORT, () => {
+  console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
+});
+
+export default app;

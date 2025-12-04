@@ -1,0 +1,23 @@
+# Configuration pour Render.com
+services:
+  - type: web
+    name: repas-api
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: FRONTEND_URL
+        sync: false
+      - key: DATABASE_PATH
+        value: /data/repas.db
+    disk:
+      name: repas-data
+      mountPath: /data
+      sizeGB: 1
