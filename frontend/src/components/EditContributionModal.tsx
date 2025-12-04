@@ -11,7 +11,7 @@ interface EditContributionModalProps {
 }
 
 export function EditContributionModal({ isOpen, onClose, contribution }: EditContributionModalProps) {
-  const [category, setCategory] = useState<Category>('STARTER');
+  const [category, setCategory] = useState<Category>('SALTY');
   const [description, setDescription] = useState('');
   const [servings, setServings] = useState(8);
 
