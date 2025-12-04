@@ -15,7 +15,7 @@ export function Header() {
       <div className="relative z-10 px-4">
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2">
           <span aria-hidden="true">🎄 </span>
-          Repas d'Équipe DRSM IDF
+          Repas d'Équipe
           <span aria-hidden="true"> 🎄</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl opacity-90">

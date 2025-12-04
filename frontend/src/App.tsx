@@ -29,11 +29,6 @@ function App() {
         <GuestsList />
       </main>
 
-      <footer className="text-center py-4 sm:py-6 text-text-muted text-xs sm:text-sm border-t border-gray-200 bg-white/50" role="contentinfo">
-        <p>Équipe Informatique DRSM Île-de-France</p>
-        <p className="text-xs mt-1 opacity-75">Application de gestion du repas d'équipe</p>
-      </footer>
-
       {/* Modales */}
       <RsvpModal isOpen={isRsvpOpen} onClose={() => setIsRsvpOpen(false)} />
       <ContributionModal isOpen={isContributionOpen} onClose={() => setIsContributionOpen(false)} />
