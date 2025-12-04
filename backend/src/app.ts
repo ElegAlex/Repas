@@ -64,7 +64,7 @@ export function createApp() {
 
   // Serve frontend in production
   if (isProduction) {
-    const frontendPath = path.join(__dirname, '../../public');
+    const frontendPath = path.join(__dirname, '../public');
     app.use(express.static(frontendPath));
 
     // SPA fallback - serve index.html for all non-API routes
